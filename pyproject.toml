@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nafsai"
+version = "0.1.0"
+description = "The Arabic-First Memory Layer for Local AI"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "NafsAI" }]
+keywords = [
+    "arabic", "AI", "memory", "local", "LLM",
+    "ذاكرة", "عربي", "ذكاء اصطناعي",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: Arabic",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "sentence-transformers>=3.0.1",
+    "numpy>=2.0.0",
+]
+
+[project.optional-dependencies]
+full = [
+    "sqlite-vec>=0.1.9",
+]
+dev = [
+    "pytest>=8.0.0",
+    "black>=24.0.0",
+    "ruff>=0.4.0",
+]
+
+[project.urls]
+Homepage   = "https://github.com/NafsAI/NafsAI"
+Repository = "https://github.com/NafsAI/NafsAI"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nafsai"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short"

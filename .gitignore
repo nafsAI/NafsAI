@@ -1,0 +1,29 @@
+# بيئة Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+env/
+
+# ذاكرة NafsAI — شخصية، لا تُرفع
+*.db
+*.db-wal
+*.db-shm
+nafsai_memory.db
+
+# اختبارات
+.pytest_cache/
+.coverage
+htmlcov/
+
+# بناء المشروع
+dist/
+build/
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+*.swpnafsai_test/ 
