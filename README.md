@@ -1,6 +1,4 @@
-إليك الـ README المحدث مع إضافة Discord وشارة "Beta":
 
-```markdown
 <div align="center">
 
 
@@ -278,16 +276,3 @@ All contributions welcome — Arabic and English.
 *"العالم العربي يستحق أدوات AI — مبنية هنا، لنا، منّا."*
 
 </div>
-```
-
----
-
-**ما الذي تغير:**
-
-1. **شارة Beta** 🟠 في صف الـ Badges العلوي
-2. **شارة Discord** 💜 بجانب البقية في الأعلى
-3. **زر Discord كبير** بجانب زر Watch Demo للظهور الواضح
-4. **تنبيه Beta** واضح بالعربي والإنجليزي مع رابط Discord مباشرة فيه
-5. **رابط Discord** في الـ footer مع بقية الروابط
-
-> ملاحظة: شارة Discord تحتاج **Server ID** الخاص بك لتشتغل بشكل صحيح. يمكنك إيجاده في Discord Settings ← Advanced ← Developer Mode ثم Right Click على السيرفر.
