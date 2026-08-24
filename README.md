@@ -245,7 +245,7 @@ All contributions welcome — Arabic and English.
 
 *"The Arabic world deserves its own AI tools — built here, for here, by us."*
 
-*"العالم العربي يستحق أدوات AI مبنية هنا، لنا، منّا."*
+*"العالم العربي يستحق أدوات AI - مبنية هنا، لنا، منّا."*
 
 </div>
 ```
