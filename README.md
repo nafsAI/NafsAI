@@ -11,19 +11,15 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
 [![Arabic-First](https://img.shields.io/badge/Arabic--First-✓-green.svg)]()
-[![Beta](https://img.shields.io/badge/status-beta-orange.svg)]()
-[![Discord](https://img.shields.io/discord/1234567890?color=7289da&label=Discord&logo=discord&logoColor=white)](https://discord.gg/fUqpDfVeY)
 
 **Arabic · English · No Cloud · No API · Your Device Only**
 
 *Built in Saudi Arabia* <img src="https://flagcdn.com/sa.svg" width="20"/> *— المملكة العربية السعودية*
 
 [![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-black?style=for-the-badge)](https://github.com/user-attachments/assets/fb93518b-092c-468f-befc-a2e36ed90ae3)
-[![Join Discord](https://img.shields.io/badge/Join_Community-Discord-7289da?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fUqpDfVeY)
 
-> ⚠️ **NafsAI is currently in Beta** — APIs may change. Feedback welcome on [Discord](https://discord.gg/fUqpDfVeY)!
+> 
 >
-> ⚠️ **نفس AI في مرحلة تجريبية** — قد تتغير بعض الواجهات. نرحب بملاحظاتكم على [Discord](https://discord.gg/fUqpDfVeY)!
 
 </div>
 
