@@ -13,8 +13,8 @@
 | Tool | Version | Link |
 |------|---------|------|
 | Python | 3.10+ | https://python.org |
-| Ollama | Latest | https://ollama.com |
 | RAM | 4GB+ | — |
+| Any LLM | Ollama / OpenAI / Gemini | — |
 
 ---
 
@@ -35,7 +35,7 @@ pip install nafsai
 | 16GB+ | `aya-expanse:8b` | 8GB | Best |
 
 ```bash
-# Pull your chosen model
+# Pull your chosen model if you use ollama:
 ollama pull llama3.2        # lightweight — any device
 ollama pull aya-expanse     # recommended — 8GB RAM
 ollama pull aya-expanse:8b  # best Arabic — 16GB RAM
