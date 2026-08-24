@@ -85,7 +85,7 @@ def my_llm(prompt: str) -> str:
 
 ---
 
-## Step 3 — First Conversation
+## Step 4 — First Conversation
 
 ```python
 from nafsai import Agent
@@ -103,7 +103,7 @@ print(agent.chat("What do you know about me?", my_llm))
 
 ---
 
-## Step 4 — The Real Test
+## Step 5 — The Real Test
 
 Close your terminal. Open a new one.
 
