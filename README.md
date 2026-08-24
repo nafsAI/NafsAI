@@ -16,7 +16,7 @@
 
 **Arabic · English · No Cloud · No API · Your Device Only**
 
-*Built in Saudi Arabia 🇸🇦*
+**Built in Saudi Arabia — المملكة العربية السعودية**
 
 [![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-black?style=for-the-badge)](https://github.com/user-attachments/assets/fb93518b-092c-468f-befc-a2e36ed90ae3)
 
