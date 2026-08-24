@@ -65,6 +65,9 @@ def my_llm(prompt: str) -> str:
 from openai import OpenAI
 
 client = OpenAI(api_key="your-key")
+
+client = OpenAI(api_key="your-key")
+
 def my_llm(prompt: str) -> str:
     return client.chat.completions.create(
         model="gpt-4o",
@@ -82,7 +85,7 @@ def my_llm(prompt: str) -> str:
 
 ---
 
-## Step 4 — First Conversation
+## Step 3 — First Conversation
 
 ```python
 from nafsai import Agent
@@ -100,7 +103,7 @@ print(agent.chat("What do you know about me?", my_llm))
 
 ---
 
-## Step 5 — The Real Test
+## Step 4 — The Real Test
 
 Close your terminal. Open a new one.
 
@@ -123,10 +126,10 @@ print(agent.chat("هل تتذكرني؟", my_llm))
 
 ```
 your-project/
-└── nafsai_memory.db   ← all memory stored here
+└── nafsai_memory.db   ← all memory here
 ```
 
-- **Move to another device:** copy `nafsai_memory.db`
+- **Move memory** to another device: copy `nafsai_memory.db`
 - **Reset memory:** delete `nafsai_memory.db`
 - **Custom path:**
 
@@ -158,96 +161,12 @@ No configuration needed. It chooses automatically.
 | Ollama not responding | Run `ollama serve` first |
 | Memory not persisting | Check `nafsai_memory.db` exists in your folder |
 | Slow first run | Normal — model loads once, then cached |
-| Bad Arabic responses | Switch to `aya-expanse` for better Arabic |
 
 ---
 
 ## Next Steps
 
-- 🎯 Run the full demo: `python examples/ollama_demo.py --list-models`
+- 🎯 Run the full demo: `python examples/ollama_demo.py`
 - 📖 Read the [full documentation](https://github.com/NafsAI/NafsAI/wiki)
 - 💬 Ask a question: [open an issue](https://github.com/NafsAI/NafsAI/issues)
-```
-```markdown
----
-
-Full Demo
-bash
-
-Copy
-# Run with default model
-python examples/ollama_demo.py
-
-# Run with specific model
-python examples/ollama_demo.py --model aya-expanse
-
-# Show all recommended models
-python examples/ollama_demo.py --list-models
-
-
----
-
-## Language Support
-
-NafsAI works in Arabic and English — in the same conversation:
-
-```python
-agent = Agent()
-
-# Arabic
-agent.chat("اسمي عبدالله", my_llm)
-
-# English
-agent.chat("I work in Riyadh", my_llm)
-
-# Mixed — it handles both
-print(agent.chat("What do you know about me?", my_llm))
-print(agent.chat("ماذا تعرف عني؟", my_llm))
-```
-
----
-
-## Advanced Options
-
-```python
-# Custom memory path
-agent = Agent(db_path="/your/path/memory.db")
-
-# English interface
-agent = Agent(language="en")
-
-# Silent mode — no startup messages
-agent = Agent(verbose=False)
-
-# All options combined
-agent = Agent(
-    db_path="./my_memory.db",
-    language="ar",
-    verbose=True,
-)
-```
-
----
-
-## Privacy
-
-```
-✓ Everything stored locally — your device only
-✓ No data leaves your machine
-✓ No telemetry
-✓ No internet required after installation
-```
-
-```
-✓ كل شيء يُخزن محلياً على جهازك فقط
-✓ لا بيانات تغادر جهازك
-✓ لا تتبع
-✓ لا إنترنت مطلوب بعد التثبيت
-```
-
----
-
-*Questions? Open an issue on [GitHub](https://github.com/NafsAI/NafsAI/issues).*
-
-*Built in Saudi Arabia* <img src="https://flagcdn.com/sa.svg" width="16"/> *— المملكة العربية السعودية*
 ```
