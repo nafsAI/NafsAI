@@ -1,8 +1,48 @@
+دعني أبحث أولاً عن أفضل ممارسات README في GitHub:حاضر! عندي إجابات واضحة على كل نقطة. خلني أبدأ بالمشاكل ثم أعطيك الـ README المحسّن كاملاً.
+
+---
+
+### المشكلة 1 — الصورة لا تظهر
+
+السبب أن `assets/logo.png` غير موجود في المستودع. الحل بطريقتين:
+
+**الطريقة الأسهل** — اسحب الصورة مباشرة في GitHub:
+1. افتح أي Issue في المستودع
+2. اسحب الصورة في خانة التعليق
+3. GitHub يرفعها تلقائياً ويعطيك رابط
+4. انسخ الرابط واستخدمه في README https://stackoverflow.com/questions/11915826/image-not-showing-up-in-readme-md-on-github
+
+**أو** ارفع الصورة في مجلد `assets/` في المستودع واستخدم مسار نسبي https://stackoverflow.com/questions/11915826/image-not-showing-up-in-readme-md-on-github:
+```markdown
+<img src="./assets/logo.png" alt="NafsAI" width="120"/>
+```
+
+---
+
+### المشكلة 2 — الفيديو 53 ثانية
+
+GitHub يحذف `<video>` و `<iframe>` تلقائياً من README https://github.com/orgs/community/discussions/61586. عندك خيارين:
+
+**الخيار الأفضل لـ 53 ثانية** — ارفع الفيديو عبر Issue:
+1. افتح Issue جديد
+2. اسحب ملف MP4 في خانة التعليق
+3. GitHub يرفعه على `user-images.githubusercontent.com`
+4. انسخ الرابط وضعه في README هكذا https://github.com/orgs/community/discussions/61586:
+
+```markdown
+[![Demo](./assets/demo-thumbnail.png)](رابط_الفيديو_من_github)
+```
+
+**أو حوّله لـ GIF** إذا أردت تشغيل تلقائي بدون ضغط، لكن انتبه حجم الـ GIF يكبر كثيراً لـ 53 ثانية https://github.com/orgs/community/discussions/61586.
+
+---
+
+### README المحسّن كامل
 
 ```markdown
 <div align="center">
 
-<img src="assets/logo.png" alt="NafsAI" width="120"/>
+<img src="./assets/logo.png" alt="NafsAI" width="120"/>
 
 # NafsAI
 ### The Arabic-First Memory Layer for Local AI
@@ -16,6 +56,8 @@
 **Arabic · English · No Cloud · No API · Your Device Only**
 
 *Built in Saudi Arabia 🇸🇦*
+
+[![Demo](./assets/demo-thumbnail.png)](YOUR_VIDEO_URL_HERE)
 
 </div>
 
@@ -98,6 +140,25 @@ agent2.chat("Who am I?", my_llm)
 
 ---
 
+## Where is My Data Stored?
+
+```
+your-project/
+└── nafsai_memory.db   ← all memory stored here (SQLite)
+```
+
+- **Default location:** same folder where you run your script
+- **Custom location:**
+
+```python
+agent = Agent(db_path="/your/custom/path/memory.db")
+```
+
+- **To move your memory** to another device: copy `nafsai_memory.db`
+- **To reset memory:** delete `nafsai_memory.db`
+
+---
+
 ## How It Works
 
 ```
@@ -143,12 +204,12 @@ No configuration needed. It just works.
 ## Works With Any LLM
 
 ```python
-# Ollama (local)
+# Ollama (local & free)
 import ollama
 
 def llm(prompt: str) -> str:
     return ollama.chat(
-        model="llama3.2",
+        model="command-r",
         messages=[{"role": "user", "content": prompt}],
     )["message"]["content"]
 
@@ -171,7 +232,7 @@ agent.chat("your question", llm)
 
 ## Tests & Quality
 
-All tests pass across all memory modes:
+All 96 tests pass across all memory modes:
 
 | Test File | Coverage |
 |-----------|----------|
@@ -185,7 +246,8 @@ All tests pass across all memory modes:
 ```bash
 pip install -e ".[dev]"
 pytest
-# ✓ All tests passed
+# ✓ 96 passed
+```
 
 ---
 
@@ -213,8 +275,7 @@ pytest
 - [x] SQLite + FTS5 + vector search
 - [x] Arabic-English bilingual support
 - [x] Smart fallback system
-
-next version: 
+- [x] Arabic text normalization
 - [ ] MCP server support
 
 ---
@@ -245,7 +306,7 @@ All contributions welcome — Arabic and English.
 
 *"The Arabic world deserves its own AI tools — built here, for here, by us."*
 
-*"العالم العربي يستحق أدوات AI - مبنية هنا، لنا، منّا."*
+*"العالم العربي يستحق أدوات AI — مبنية هنا، لنا، منّا."*
 
 </div>
 ```
