@@ -159,7 +159,7 @@ No configuration needed. It chooses automatically.
 | Ollama not responding | Run `ollama serve` first |
 | Memory not persisting | Check `nafsai_memory.db` exists in your folder |
 | Slow first run | Normal — model loads once, then cached |
-| Slow first run | Normal — model loads once, then cached |
+| Bad Arabic responses | Switch to `aya-expanse` for better Arabic |
 
 ---
 
