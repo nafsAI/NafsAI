@@ -1,6 +1,8 @@
 
 
 
+<div align="center">
+
 <img src="./assets/logo.png" alt="NafsAI" width="120"/>
 
 # NafsAI
@@ -16,7 +18,7 @@
 
 *Built in Saudi Arabia 🇸🇦*
 
-[./assets/demo-thumbnail.png)](YOUR_VIDEO_URL_HERE](https://github.com/nafsAI/NafsAI/issues/1#issue-5232141499))
+[![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-black?style=for-the-badge)](https://github.com/user-attachments/assets/fb93518b-092c-468f-befc-a2e36ed90ae3)
 
 </div>
 
