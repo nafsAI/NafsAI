@@ -332,7 +332,7 @@ class Memory:
             return self._numpy_search(q_norm, top_k, table="conversations")
 
     def _hybrid_search(self, query: str, top_k: int) -> list[str]:
-        """FTS5 + vec0 fused with RRF scoring."""
+        """FTS5 + vec0 fused with RRF scoring — compatible with all SQLite versions."""
         try:
             vec = self.model.encode(
                 f"query: {query}"
@@ -354,11 +354,18 @@ class Memory:
                     AND k = ?
                 ),
                 fused AS (
-                    SELECT COALESCE(f.id, v.id) AS id,
+                    SELECT f.id,
                            COALESCE(1.0/(60+f.rn), 0) +
                            COALESCE(1.0/(60+v.rn), 0) AS score
                     FROM fts f
-                    FULL OUTER JOIN vec v ON f.id = v.id
+                    LEFT JOIN vec v ON f.id = v.id
+                    UNION ALL
+                    SELECT v.id,
+                           COALESCE(1.0/(60+f.rn), 0) +
+                           COALESCE(1.0/(60+v.rn), 0) AS score
+                    FROM vec v
+                    LEFT JOIN fts f ON f.id = v.id
+                    WHERE f.id IS NULL
                 )
                 SELECT c.query, c.answer, c.timestamp, c.importance
                 FROM fused
