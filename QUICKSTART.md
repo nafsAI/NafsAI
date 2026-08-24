@@ -1,34 +1,4 @@
-نعم، يحتاج تعديلات. الملف جيد لكن فيه مشاكل واضحة وعناصر ناقصة.
 
----
-
-### المشاكل الموجودة
-
-**1. الموديل `llama3.2` في الأمثلة**
-جربناه وهو ضعيف في العربية. يجب استبداله بـ `command-r`https://docs.github.com/en/contributing/style-guide-and-content-model/quickstart-content-type
-
-**2. لا يوجد وقت متوقع للإنجاز**
-أفضل الـ Quickstart guides تخبر المستخدم كم يأخذ الوقت https://docs.github.com/en/contributing/style-guide-and-content-model/quickstart-content-type:
-```
-⏱ 5 minutes
-```
-
-**3. لا يوجد متطلبات النظام**
-الجدول يذكر Python وLLM لكن لا يذكر:
-- الذاكرة RAM المطلوبة
-- مساحة القرص
-
-**4. لا يوجد ماذا تفعل عند المشاكل**
-أي Quickstart جيد يحتوي على قسم Troubleshooting https://docs.github.com/en/contributing/writing-for-github-docs/best-practices-for-github-docs
-
-**5. `Next Steps` فقير جداً**
-سطر واحد فقط. يجب أن يحتوي على 2-3 خطوات مفيدة https://docs.github.com/en/contributing/style-guide-and-content-model/quickstart-content-type
-
----
-
-### الملف المحسّن كاملاً
-
-```markdown
 # NafsAI — Quick Start
 
 **Arabic-First Memory for Local AI**
