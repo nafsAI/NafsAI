@@ -3,7 +3,7 @@
 
 <div align="center">
 
-<img src="./assets/logo.png" alt="NafsAI" width="120"/>
+
 
 # NafsAI
 ### The Arabic-First Memory Layer for Local AI
