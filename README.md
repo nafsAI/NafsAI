@@ -1,6 +1,6 @@
+إليك الـ README المحدث مع إضافة Discord وشارة "Beta":
 
-
-
+```markdown
 <div align="center">
 
 
@@ -13,12 +13,19 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
 [![Arabic-First](https://img.shields.io/badge/Arabic--First-✓-green.svg)]()
+[![Beta](https://img.shields.io/badge/status-beta-orange.svg)]()
+[![Discord](https://img.shields.io/discord/1234567890?color=7289da&label=Discord&logo=discord&logoColor=white)](https://discord.gg/fUqpDfVeY)
 
 **Arabic · English · No Cloud · No API · Your Device Only**
 
 *Built in Saudi Arabia* <img src="https://flagcdn.com/sa.svg" width="20"/> *— المملكة العربية السعودية*
 
 [![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-black?style=for-the-badge)](https://github.com/user-attachments/assets/fb93518b-092c-468f-befc-a2e36ed90ae3)
+[![Join Discord](https://img.shields.io/badge/Join_Community-Discord-7289da?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fUqpDfVeY)
+
+> ⚠️ **NafsAI is currently in Beta** — APIs may change. Feedback welcome on [Discord](https://discord.gg/fUqpDfVeY)!
+>
+> ⚠️ **نفس AI في مرحلة تجريبية** — قد تتغير بعض الواجهات. نرحب بملاحظاتكم على [Discord](https://discord.gg/fUqpDfVeY)!
 
 </div>
 
@@ -263,11 +270,24 @@ All contributions welcome — Arabic and English.
 [PyPI](https://pypi.org/project/nafsai) ·
 [Documentation](https://github.com/NafsAI/NafsAI/wiki) ·
 [Issues](https://github.com/NafsAI/NafsAI/issues) ·
-[Discussions](https://github.com/NafsAI/NafsAI/discussions)
+[Discussions](https://github.com/NafsAI/NafsAI/discussions) ·
+[Discord](https://discord.gg/fUqpDfVeY)
 
 *"The Arabic world deserves its own AI tools — built here, for here, by us."*
 
 *"العالم العربي يستحق أدوات AI — مبنية هنا، لنا، منّا."*
 
 </div>
+```
 
+---
+
+**ما الذي تغير:**
+
+1. **شارة Beta** 🟠 في صف الـ Badges العلوي
+2. **شارة Discord** 💜 بجانب البقية في الأعلى
+3. **زر Discord كبير** بجانب زر Watch Demo للظهور الواضح
+4. **تنبيه Beta** واضح بالعربي والإنجليزي مع رابط Discord مباشرة فيه
+5. **رابط Discord** في الـ footer مع بقية الروابط
+
+> ملاحظة: شارة Discord تحتاج **Server ID** الخاص بك لتشتغل بشكل صحيح. يمكنك إيجاده في Discord Settings ← Advanced ← Developer Mode ثم Right Click على السيرفر.
