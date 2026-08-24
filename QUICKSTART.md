@@ -1,6 +1,4 @@
-تحققت. `aya-expanse` يدعم العربية رسمياً وهو متاح على Ollama https://ollama.com/library/aya-expanse:32b https://ollama.com/library/aya-expanse:8b. هذا الملف النهائي الكامل:
 
-```markdown
 # NafsAI — Quick Start
 
 **Arabic-First Memory for Local AI**
