@@ -28,7 +28,12 @@ class Agent:
         answer = agent.chat("What is my name?", my_llm)
     """
 
-    SYSTEM_PROMPT = (
+    SYSTEM_PROMPT_AR = (
+        "أنت مساعد ذكي يتذكر المحادثات السابقة. "
+        "استخدم الذاكرة والسياق المقدم للإجابة بدقة."
+    )
+
+    SYSTEM_PROMPT_EN = (
         "You are a smart assistant that remembers previous conversations. "
         "Use the provided memory and context to answer accurately."
     )
@@ -37,9 +42,19 @@ class Agent:
         self,
         db_path: str = "./nafsai_memory.db",
         model_name: str = "intfloat/multilingual-e5-base",
+        language: str = "ar",
+        verbose: bool = True,
     ):
-        print("\n NafsAI — Initializing...")
-        print("─" * 40)
+        if verbose:
+            print("\n NafsAI — Initializing...")
+            print("─" * 40)
+
+        self.language = language
+        self.system_prompt = (
+            self.SYSTEM_PROMPT_AR
+            if language == "ar"
+            else self.SYSTEM_PROMPT_EN
+        )
 
         self.normalizer = Normalizer()
         self.router     = Router(model_name=model_name)
@@ -51,14 +66,21 @@ class Agent:
         self.cache   = Cache()
         self.session = Session()
 
-        print("─" * 40)
-        memory_status = "Connected" if self.memory.available else "Unavailable"
-        print(f" Memory  : {memory_status}")
-        print(" Router  : Ready")
-        print(" Cache   : Ready")
-        print(f" Version : v{self._version()}")
-        print("─" * 40)
-        print(" NafsAI Ready\n")
+        if verbose:
+            print("─" * 40)
+            memory_status = "Connected" if self.memory.available else "Unavailable"
+            memory_mode = {
+                "full":       "Full  (FTS5 + vectors)",
+                "fts_only":   "Good  (FTS5 only)",
+                "numpy_only": "Basic (numpy)",
+            }.get(self.memory.mode, "Unknown")
+            print(f" Memory  : {memory_status} — {memory_mode}")
+            print(" Router  : Ready")
+            print(" Cache   : Ready")
+            print(f" Version : v{self._version()}")
+            print("─" * 40)
+            print(" NafsAI Ready\n")
+
         log.info("NafsAI ready ✓")
 
     def _version(self) -> str:
@@ -99,7 +121,7 @@ class Agent:
 
     def build_prompt(self, query: str, ctx: dict) -> str:
         """Build a prompt ready for any LLM."""
-        parts = [self.SYSTEM_PROMPT, ""]
+        parts = [self.system_prompt, ""]
 
         if ctx.get("profile"):
             parts.append("User information:")
@@ -182,5 +204,5 @@ class Agent:
         """Clear session and cache."""
         self.session.clear()
         self.cache.clear()
-        print("✓ Session and cache cleared")
         log.info("Session and cache cleared ✓")
+        print("✓ Session and cache cleared")
