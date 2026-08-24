@@ -162,9 +162,24 @@ No configuration needed. It chooses automatically.
 
 ---
 
+## Full Demo
+
+```bash
+# Run with default model
+python examples/ollama_demo.py
+
+# Run with specific model
+python examples/ollama_demo.py --model aya-expanse
+
+# Show all recommended models
+python examples/ollama_demo.py --list-models
+
+
+```
+
 ## Next Steps
 
 - 🎯 Run the full demo: `python examples/ollama_demo.py`
 - 📖 Read the [full documentation](https://github.com/NafsAI/NafsAI/wiki)
 - 💬 Ask a question: [open an issue](https://github.com/NafsAI/NafsAI/issues)
-```
+
