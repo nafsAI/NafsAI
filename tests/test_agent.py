@@ -104,7 +104,7 @@ class TestAgent:
         }
         prompt = agent.build_prompt("ما اسمك؟", ctx)
         assert "ما اسمك؟" in prompt
-        assert agent.SYSTEM_PROMPT in prompt
+        assert agent.system_prompt in prompt
 
     def test_build_prompt_with_profile(self, agent):
         ctx = {
