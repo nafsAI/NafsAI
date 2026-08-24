@@ -1,3 +1,5 @@
+تحققت. `aya-expanse` يدعم العربية رسمياً وهو متاح على Ollama https://ollama.com/library/aya-expanse:32b https://ollama.com/library/aya-expanse:8b. هذا الملف النهائي الكامل:
+
 ```markdown
 # NafsAI — Quick Start
 
@@ -63,7 +65,6 @@ def my_llm(prompt: str) -> str:
 from openai import OpenAI
 
 client = OpenAI(api_key="your-key")
-
 def my_llm(prompt: str) -> str:
     return client.chat.completions.create(
         model="gpt-4o",
@@ -170,9 +171,10 @@ No configuration needed. It chooses automatically.
 ```markdown
 ---
 
-## Full Demo
+Full Demo
+bash
 
-```bash
+Copy
 # Run with default model
 python examples/ollama_demo.py
 
@@ -181,7 +183,7 @@ python examples/ollama_demo.py --model aya-expanse
 
 # Show all recommended models
 python examples/ollama_demo.py --list-models
-```
+
 
 ---
 
