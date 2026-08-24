@@ -1,45 +1,4 @@
-دعني أبحث أولاً عن أفضل ممارسات README في GitHub:حاضر! عندي إجابات واضحة على كل نقطة. خلني أبدأ بالمشاكل ثم أعطيك الـ README المحسّن كاملاً.
 
----
-
-### المشكلة 1 — الصورة لا تظهر
-
-السبب أن `assets/logo.png` غير موجود في المستودع. الحل بطريقتين:
-
-**الطريقة الأسهل** — اسحب الصورة مباشرة في GitHub:
-1. افتح أي Issue في المستودع
-2. اسحب الصورة في خانة التعليق
-3. GitHub يرفعها تلقائياً ويعطيك رابط
-4. انسخ الرابط واستخدمه في README https://stackoverflow.com/questions/11915826/image-not-showing-up-in-readme-md-on-github
-
-**أو** ارفع الصورة في مجلد `assets/` في المستودع واستخدم مسار نسبي https://stackoverflow.com/questions/11915826/image-not-showing-up-in-readme-md-on-github:
-```markdown
-<img src="./assets/logo.png" alt="NafsAI" width="120"/>
-```
-
----
-
-### المشكلة 2 — الفيديو 53 ثانية
-
-GitHub يحذف `<video>` و `<iframe>` تلقائياً من README https://github.com/orgs/community/discussions/61586. عندك خيارين:
-
-**الخيار الأفضل لـ 53 ثانية** — ارفع الفيديو عبر Issue:
-1. افتح Issue جديد
-2. اسحب ملف MP4 في خانة التعليق
-3. GitHub يرفعه على `user-images.githubusercontent.com`
-4. انسخ الرابط وضعه في README هكذا https://github.com/orgs/community/discussions/61586:
-
-```markdown
-[![Demo](./assets/demo-thumbnail.png)](رابط_الفيديو_من_github)
-```
-
-**أو حوّله لـ GIF** إذا أردت تشغيل تلقائي بدون ضغط، لكن انتبه حجم الـ GIF يكبر كثيراً لـ 53 ثانية https://github.com/orgs/community/discussions/61586.
-
----
-
-### README المحسّن كامل
-
-```markdown
 <div align="center">
 
 <img src="./assets/logo.png" alt="NafsAI" width="120"/>
@@ -57,7 +16,7 @@ GitHub يحذف `<video>` و `<iframe>` تلقائياً من README https://git
 
 *Built in Saudi Arabia 🇸🇦*
 
-[![Demo](./assets/demo-thumbnail.png)](YOUR_VIDEO_URL_HERE)
+[![Demo]([./assets/demo-thumbnail.png)](YOUR_VIDEO_URL_HERE](https://github.com/nafsAI/NafsAI/issues/1#issue-5232141499))
 
 </div>
 
