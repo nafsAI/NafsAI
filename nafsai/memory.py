@@ -13,6 +13,7 @@ from typing import Optional
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
+from nafsai.normalizer import Normalizer
 
 log = logging.getLogger("nafsai.memory")
 
@@ -28,34 +29,18 @@ class Memory:
     """
 
     USER_FACT_PATTERNS = [
-        (r"اسمي\s+(\w+)",                          "اسم المستخدم هو: {}"),
-        (r"my name is\s+(\w+)",                    "اسم المستخدم هو: {}"),
-        (r"انا\s+(مطور|مبرمج|طالب|مهندس|دكتور|معلم)\s*(\w*)", "المستخدم هو: {}"),
-        (r"I(?:'m| am) (?:a |an )?(\w+)",          "المستخدم هو: {}"),
-        (r"اعمل\s+(في|كـ):?\s*(\w+)",              "المستخدم يعمل في: {}"),
-        (r"I work (?:at|in|as) (\w+)",             "المستخدم يعمل في: {}"),
-        (r"اسكن\s+(في):?\s*(\w+)",                 "المستخدم يسكن في: {}"),
-        (r"I live (?:in|at) (\w+)",                "المستخدم يسكن في: {}"),
+        (r"اسمي\s+([\u0600-\u06FF]{2,20})",                "اسم المستخدم هو: {}"),
+        (r"my name is\s+([A-Za-z]{2,20})",                 "اسم المستخدم هو: {}"),
+        (r"(?:انا|أنا)\s+اسمي\s+([\u0600-\u06FF]{2,20})", "اسم المستخدم هو: {}"),
+        (r"يناديني\s+([\u0600-\u06FF]{2,20})",             "اسم المستخدم هو: {}"),
+        (r"call me\s+([A-Za-z]{2,20})",                    "اسم المستخدم هو: {}"),
+        (r"انا\s+(مطور|مبرمج|طالب|مهندس|دكتور|معلم)",     "المستخدم هو: {}"),
+        (r"I(?:'m| am) (?:a |an )?([A-Za-z]{2,20})",      "المستخدم هو: {}"),
+        (r"اعمل\s+في\s+([\u0600-\u06FF]{2,20})",           "المستخدم يعمل في: {}"),
+        (r"I work (?:at|in|as) ([A-Za-z]{2,20})",         "المستخدم يعمل في: {}"),
+        (r"اسكن\s+في\s+([\u0600-\u06FF]{2,20})",           "المستخدم يسكن في: {}"),
+        (r"I live (?:in|at) ([A-Za-z]{2,20})",            "المستخدم يسكن في: {}"),
     ]
-
-    _ARABIC_NUMS  = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
-    _ARABIC_CHARS = [
-        ("أ", "ا"), ("إ", "ا"), ("آ", "ا"),
-        ("ة", "ه"), ("ى", "ي"),
-    ]
-    _DIACRITICS = re.compile(r"[\u064B-\u065F\u0670]")
-
-    def _normalize(self, text: str) -> str:
-        """Internal Arabic normalization for FTS5 — standalone."""
-        if not text or not text.strip():
-            return text
-        text = text.strip()
-        text = text.translate(self._ARABIC_NUMS)
-        text = self._DIACRITICS.sub("", text)
-        for orig, unified in self._ARABIC_CHARS:
-            text = text.replace(orig, unified)
-        text = re.sub(r"\s+", " ", text)
-        return text.strip()
 
     # ─── init ─────────────────────────────────────────────────────────────────
 
@@ -70,6 +55,7 @@ class Memory:
             print("First run may take 30-60 seconds...")
 
         self.model = _shared_model or SentenceTransformer(model_name)
+        self._normalizer = Normalizer()
 
         if _shared_model is None:
             print("Model ready\n")
@@ -90,6 +76,12 @@ class Memory:
         }
         print(f" {icons[self.mode]} {names[self.mode]}")
         log.info(f"Memory ready — mode: {self.mode}")
+
+    # ─── normalization ────────────────────────────────────────────────────────
+
+    def _normalize(self, text: str) -> str:
+        """Normalize Arabic text using the shared Normalizer."""
+        return self._normalizer.normalize(text)
 
     # ─── mode detection ───────────────────────────────────────────────────────
 
