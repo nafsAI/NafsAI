@@ -1,4 +1,4 @@
-
+```markdown
 # NafsAI — Quick Start
 
 **Arabic-First Memory for Local AI**
@@ -13,8 +13,8 @@
 | Tool | Version | Link |
 |------|---------|------|
 | Python | 3.10+ | https://python.org |
+| Ollama | Latest | https://ollama.com |
 | RAM | 4GB+ | — |
-| Any LLM | Ollama / OpenAI / Gemini | — |
 
 ---
 
@@ -26,21 +26,33 @@ pip install nafsai
 
 ---
 
-## Step 2 — Choose Your LLM
+## Step 2 — Choose Your Model
 
-**Option A — Ollama (Free & Local — Recommended)**
+| Device RAM | Model | Size | Arabic Quality |
+|------------|-------|------|----------------|
+| Any device | `llama3.2` | 2GB | Basic |
+| 8GB+ | `aya-expanse` | 4.7GB | Good |
+| 16GB+ | `aya-expanse:8b` | 8GB | Best |
 
 ```bash
-# Install Ollama from https://ollama.com
-ollama pull command-r
+# Pull your chosen model
+ollama pull llama3.2        # lightweight — any device
+ollama pull aya-expanse     # recommended — 8GB RAM
+ollama pull aya-expanse:8b  # best Arabic — 16GB RAM
 ```
+
+---
+
+## Step 3 — Connect Your LLM
+
+**Option A — Ollama (Free & Local — Recommended)**
 
 ```python
 import ollama
 
 def my_llm(prompt: str) -> str:
     return ollama.chat(
-        model="command-r",
+        model="aya-expanse",   # change to your model
         messages=[{"role": "user", "content": prompt}],
     )["message"]["content"]
 ```
@@ -69,7 +81,7 @@ def my_llm(prompt: str) -> str:
 
 ---
 
-## Step 3 — First Conversation
+## Step 4 — First Conversation
 
 ```python
 from nafsai import Agent
@@ -87,7 +99,7 @@ print(agent.chat("What do you know about me?", my_llm))
 
 ---
 
-## Step 4 — The Real Test
+## Step 5 — The Real Test
 
 Close your terminal. Open a new one.
 
@@ -110,10 +122,10 @@ print(agent.chat("هل تتذكرني؟", my_llm))
 
 ```
 your-project/
-└── nafsai_memory.db   ← all memory here
+└── nafsai_memory.db   ← all memory stored here
 ```
 
-- **Move memory** to another device: copy `nafsai_memory.db`
+- **Move to another device:** copy `nafsai_memory.db`
 - **Reset memory:** delete `nafsai_memory.db`
 - **Custom path:**
 
@@ -145,25 +157,95 @@ No configuration needed. It chooses automatically.
 | Ollama not responding | Run `ollama serve` first |
 | Memory not persisting | Check `nafsai_memory.db` exists in your folder |
 | Slow first run | Normal — model loads once, then cached |
+| Bad Arabic responses | Switch to `aya-expanse` for better Arabic |
 
 ---
 
 ## Next Steps
 
-- 🎯 Run the full demo: `python examples/ollama_demo.py`
+- 🎯 Run the full demo: `python examples/ollama_demo.py --list-models`
 - 📖 Read the [full documentation](https://github.com/NafsAI/NafsAI/wiki)
 - 💬 Ask a question: [open an issue](https://github.com/NafsAI/NafsAI/issues)
+```
+```markdown
+---
+
+## Full Demo
+
+```bash
+# Run with default model
+python examples/ollama_demo.py
+
+# Run with specific model
+python examples/ollama_demo.py --model aya-expanse
+
+# Show all recommended models
+python examples/ollama_demo.py --list-models
 ```
 
 ---
 
-### ملخص التحسينات
+## Language Support
 
-| العنصر | قبل | بعد |
-|--------|-----|-----|
-| وقت الإنجاز | ❌ غائب | ✅ 5 دقائق |
-| الموديل الموصى به | llama3.2 ضعيف | ✅ command-r |
-| أين البيانات | ❌ غائب | ✅ موجود |
-| Troubleshooting | ❌ غائب | ✅ جدول كامل |
-| Next Steps | سطر واحد | ✅ 3 خطوات مفيدة |
-| متطلبات RAM | ❌ غائب | ✅ موجود |
+NafsAI works in Arabic and English — in the same conversation:
+
+```python
+agent = Agent()
+
+# Arabic
+agent.chat("اسمي عبدالله", my_llm)
+
+# English
+agent.chat("I work in Riyadh", my_llm)
+
+# Mixed — it handles both
+print(agent.chat("What do you know about me?", my_llm))
+print(agent.chat("ماذا تعرف عني؟", my_llm))
+```
+
+---
+
+## Advanced Options
+
+```python
+# Custom memory path
+agent = Agent(db_path="/your/path/memory.db")
+
+# English interface
+agent = Agent(language="en")
+
+# Silent mode — no startup messages
+agent = Agent(verbose=False)
+
+# All options combined
+agent = Agent(
+    db_path="./my_memory.db",
+    language="ar",
+    verbose=True,
+)
+```
+
+---
+
+## Privacy
+
+```
+✓ Everything stored locally — your device only
+✓ No data leaves your machine
+✓ No telemetry
+✓ No internet required after installation
+```
+
+```
+✓ كل شيء يُخزن محلياً على جهازك فقط
+✓ لا بيانات تغادر جهازك
+✓ لا تتبع
+✓ لا إنترنت مطلوب بعد التثبيت
+```
+
+---
+
+*Questions? Open an issue on [GitHub](https://github.com/NafsAI/NafsAI/issues).*
+
+*Built in Saudi Arabia* <img src="https://flagcdn.com/sa.svg" width="16"/> *— المملكة العربية السعودية*
+```
