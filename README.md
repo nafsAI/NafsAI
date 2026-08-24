@@ -270,4 +270,4 @@ All contributions welcome — Arabic and English.
 *"العالم العربي يستحق أدوات AI — مبنية هنا، لنا، منّا."*
 
 </div>
-```
+
