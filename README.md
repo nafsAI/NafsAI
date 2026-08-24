@@ -1,5 +1,5 @@
 
-<div align="center">
+
 
 <img src="./assets/logo.png" alt="NafsAI" width="120"/>
 
@@ -16,7 +16,7 @@
 
 *Built in Saudi Arabia 🇸🇦*
 
-[![Demo]([./assets/demo-thumbnail.png)](YOUR_VIDEO_URL_HERE](https://github.com/nafsAI/NafsAI/issues/1#issue-5232141499))
+[./assets/demo-thumbnail.png)](YOUR_VIDEO_URL_HERE](https://github.com/nafsAI/NafsAI/issues/1#issue-5232141499))
 
 </div>
 
